@@ -1,43 +1,60 @@
-/* মেইন কন্টেইনার লেআউট */
+/* মেইন কন্টেইনার লেআউট - যা বাম ও ডান সেকশনকে পাশাপাশি রাখবে */
 .dashboard-container {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 20px;
-  max-width: 1000px;
+  grid-template-columns: 320px 1fr; /* বামে প্রোফাইল ফিক্সড, ডানে বাকি জায়গা */
+  gap: 24px;
+  max-width: 1200px;
   width: 100%;
+  margin: 20px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
+/* কমন কার্ড স্টাইল */
 .card {
   background: #ffffff;
   border: 1px solid #eef2f5;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
+/* প্রোফাইল সাইডবার */
 .profile-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: 30px 20px;
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
 }
 
 .profile-card h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #1e293b;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.badge-container {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .badge {
@@ -46,7 +63,7 @@
   border-radius: 20px;
   font-size: 11px;
   font-weight: bold;
-  margin: 4px 2px;
+  text-transform: uppercase;
 }
 
 .badge.overdue {
@@ -61,25 +78,29 @@
 .quote {
   font-style: italic;
   color: #64748b;
-  margin-top: 15px;
+  margin: 12px 0 6px 0;
   font-size: 0.95rem;
 }
 
 .preferred {
   font-size: 0.85rem;
   color: #94a3b8;
-  margin-top: 5px;
+  margin: 0;
 }
 
+/* সাইডবার বাটনসমূহ */
 .btn {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  padding: 12px;
-  border-radius: 6px;
+  padding: 14px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
   color: #334155;
+  font-size: 0.95rem;
   transition: background 0.2s;
+  width: 100%;
+  text-align: center;
 }
 
 .btn:hover {
@@ -89,76 +110,98 @@
   color: #ef4444;
 }
 
-/* ডান পাশের মেইন গ্রিড */
+/* ডান পাশের মেইন গ্রিড লেআউট */
 .main-content-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* সমান ৩টি কলাম */
   gap: 20px;
+  align-content: start;
 }
 
+/* স্ট্যাটাস কার্ড (উপরের ৩টি) */
 .status-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 25px 15px;
+  padding: 30px 15px;
+  min-height: 120px;
 }
 
 .status-card h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #1e293b;
-  margin-bottom: 8px;
+  margin: 0 0 6px 0;
+  font-weight: 600;
 }
 
 .status-card p {
   font-size: 0.85rem;
   color: #64748b;
+  margin: 0;
 }
 
 .highlight-date h3 {
-  color: #14532d;
+  color: #166534;
+  background-color: #dcfce7;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
+/* Col Span ট্রিক: ৩টি কলামের পুরো জায়গা নেওয়ার জন্য */
 .full-width-card {
   grid-column: span 3;
 }
 
+/* Relationship Goal সেকশন */
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .card-header h4,
 .checkin-card h4 {
   color: #14532d;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
 }
 
 .btn-edit {
   background: #f1f5f9;
   border: 1px solid #cbd5e1;
-  padding: 4px 12px;
-  border-radius: 4px;
+  padding: 6px 14px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 0.85rem;
+  color: #334155;
 }
 
+/* Quick Check-In অ্যাকশন বক্স */
 .checkin-actions {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 15px;
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .action-box {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: #334155;
   font-weight: 500;
   transition: all 0.2s;
+  gap: 8px;
 }
 
 .action-box:hover {
@@ -166,23 +209,32 @@
   border-color: #cbd5e1;
 }
 
-.action-box span {
-  display: block;
-  font-size: 1.4rem;
-  margin-bottom: 5px;
+.icon-wrapper {
+  font-size: 1.5rem;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 768px) {
+/* ট্যাবলেট ও মোবাইলের জন্য রেসপনসিভ */
+@media (max-width: 900px) {
   .dashboard-container {
     grid-template-columns: 1fr;
   }
-  .main-content-grid {
+}
+
+@media (max-width: 600px) {
+  .main-content-grid,
+  .checkin-actions {
     grid-template-columns: 1fr;
   }
   .full-width-card {
     grid-column: span 1;
   }
-  .checkin-actions {
-    grid-template-columns: 1fr;
-  }
+}
+
+.badge.attention {
+  background-color: #fef3c7;
+  color: #d97706;
 }
