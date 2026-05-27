@@ -45,7 +45,10 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/time-line">
+              <Link
+                className={`${pathname === "/time-line" ? "bg-[#244d3f] hover:bg-[#244d3f] text-white" : ""}`}
+                href="/time-line"
+              >
                 {" "}
                 <span className="text-2xl">
                   {" "}
@@ -55,7 +58,10 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/stats">
+              <Link
+                className={`${pathname === "/stats" ? "bg-[#244d3f] hover:bg-[#244d3f] text-white" : ""}`}
+                href="/stats"
+              >
                 {" "}
                 <span className="text-2xl">
                   {" "}
