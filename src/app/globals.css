@@ -1,26 +1,29 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ☀️ লাইট থিমের জন্য গ্লোবাল ফিক্স */
+[data-theme="light"] {
+  --bg-card: #ffffff;
+  --text-main: #1f2937;
+  --border-card: #e5e7eb;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 🌌 আপনার কাস্টম থিমের জন্য গ্লোবাল ফিক্স */
+[data-theme="synthwave"] {
+  --bg-card: #1e1b4b; /* সুন্দর ডার্ক ব্লু/বেগুনী কার্ড ব্যাকগ্রাউন্ড */
+  --text-main: #f3f4f6; /* সাদা টেক্সট */
+  --border-card: #312e81; /* ম্যাচিং বর্ডার */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* গ্লোবাল বডি স্টাইল */
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* কাস্টম কার্ড ক্লাস যা থিম অনুযায়ী নিজে থেকেই ব্যাকগ্রাউন্ড চেঞ্জ করবে */
+.custom-card {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-card);
 }
