@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <Banner />
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto ">
         <h4 className="text-2xl font-bold mb-15">Your Friends</h4>
         <div className=" grid grid-cols-1 md:grid-cols-4 md:gap-2">
           {friends.map((friend) => (

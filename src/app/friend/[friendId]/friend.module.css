@@ -1,0 +1,188 @@
+/* মেইন কন্টেইনার লেআউট */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #eef2f5;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-card {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.profile-card h2 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 4px 2px;
+}
+
+.badge.overdue {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+.badge.family {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.quote {
+  font-style: italic;
+  color: #64748b;
+  margin-top: 15px;
+  font-size: 0.95rem;
+}
+
+.preferred {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 5px;
+}
+
+.btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #334155;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #f8fafc;
+}
+.btn-delete {
+  color: #ef4444;
+}
+
+/* ডান পাশের মেইন গ্রিড */
+.main-content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.status-card {
+  text-align: center;
+  padding: 25px 15px;
+}
+
+.status-card h3 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.status-card p {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.highlight-date h3 {
+  color: #14532d;
+}
+
+.full-width-card {
+  grid-column: span 3;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h4,
+.checkin-card h4 {
+  color: #14532d;
+  font-size: 1.05rem;
+}
+
+.btn-edit {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.checkin-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.action-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #334155;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.action-box:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.action-box span {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+  .main-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .full-width-card {
+    grid-column: span 1;
+  }
+  .checkin-actions {
+    grid-template-columns: 1fr;
+  }
+}

@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const handleThemeToggle = (e) => {
     if (e.target.checked) {
-      setTheme("synthwave");
+      setTheme("dark");
     } else {
       setTheme("light");
     }
@@ -70,7 +70,7 @@ const Navbar = () => {
           <input
             type="checkbox"
             onChange={handleThemeToggle}
-            checked={theme === "synthwave"}
+            checked={theme === "dark"}
             className="toggle toggle-primary"
           />
         </div>
