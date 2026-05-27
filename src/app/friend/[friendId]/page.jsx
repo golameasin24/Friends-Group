@@ -10,9 +10,9 @@ const FriendsDetails = ({ params }) => {
   const resolvedParams = use(params);
   const { friendId } = resolvedParams;
 
-  const { friends } = useContext(FriendsContext);
+  const { friends, call, setCall, text, setText, vi, setVi } =
+    useContext(FriendsContext);
 
-  // context থেকে সঠিক বন্ধুকে খুঁজে বের করা
   const currentFriend = friends?.find((f) => f.id === parseInt(friendId));
 
   if (!currentFriend) {
@@ -25,23 +25,57 @@ const FriendsDetails = ({ params }) => {
     );
   }
 
-  // স্ট্যাটাস অনুসারে সিএসএস ক্লাস ডাইনামিক করার জন্য
+  const handleCall = (callData) => {
+    const isexist = [...call].find((tm) => tm.id === callData.id);
+
+    if (isexist) {
+      alert("call Data alredy exist");
+      return;
+    }
+
+    return setCall([...call, callData]);
+  };
+
+  const handleText = (callData) => {
+    const isexist = [...text].find((tm) => tm.id === callData.id);
+
+    if (isexist) {
+      alert("call Data alredy exist");
+      return;
+    }
+
+    return setText([...text, callData]);
+  };
+
+  const handleVi = (callData) => {
+    const isexist = [...vi].find((tm) => tm.id === callData.id);
+
+    if (isexist) {
+      alert("call Data alredy exist");
+      return;
+    }
+
+    return setVi([...vi, callData]);
+  };
+
   const statusClass =
     currentFriend.status === "overdue"
       ? styles.overdue
       : currentFriend.status === "attention"
-        ? styles.attention // যদি attention স্টাইল মডিউলে থাকে
-        : styles.family; // অন-ট্র্যাকের জন্য সবুজ ব্যাকগ্রাউন্ড
+        ? styles.attention
+        : styles.family;
 
   return (
     <div className={styles["dashboard-container"]}>
       {/* বাম পাশের প্রোফাইল সাইডবার */}
       <div className={styles["profile-sidebar"]}>
         <div className={`${styles.card} ${styles["profile-card"]}`}>
-          <img
+          <Image
             src={currentFriend.picture || "https://via.placeholder.com/80"}
             alt={currentFriend.name}
             className={styles.avatar}
+            width={100}
+            height={100}
           />
           <h2>{currentFriend.name}</h2>
 
@@ -59,7 +93,7 @@ const FriendsDetails = ({ params }) => {
           </div>
 
           <p className={styles.quote}>
-            "{currentFriend.bio || "No bio available"}"
+            {currentFriend.bio || "No bio available"}
           </p>
           <p className={styles.preferred}>
             Preferred: {currentFriend.email || "N/A"}
@@ -110,19 +144,28 @@ const FriendsDetails = ({ params }) => {
         <div className={`${styles.card} ${styles["full-width-card"]}`}>
           <h4>Quick Check-In</h4>
           <div className={styles["checkin-actions"]}>
-            <div className={styles["action-box"]}>
+            <div
+              className={styles["action-box"]}
+              onClick={() => handleCall(currentFriend)}
+            >
               <div className={styles["icon-wrapper"]}>
                 <MdWifiCalling3 size={24} />
               </div>
               <span>Call</span>
             </div>
 
-            <div className={styles["action-box"]}>
+            <div
+              className={styles["action-box"]}
+              onClick={() => handleText(currentFriend)}
+            >
               <div className={styles["icon-wrapper"]}>💬</div>
               <span>Text</span>
             </div>
 
-            <div className={styles["action-box"]}>
+            <div
+              className={styles["action-box"]}
+              onClick={() => handleVi(currentFriend)}
+            >
               <div className={styles["icon-wrapper"]}>📹</div>
               <span>Video</span>
             </div>

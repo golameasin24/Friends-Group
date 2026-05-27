@@ -5,6 +5,9 @@ import { FriendsContext } from "./CreateContext";
 
 const FriendsProvider = ({ children }) => {
   const [friends, setFriends] = useState([]);
+  const [call, setCall] = useState([]);
+  const [text, setText] = useState([]);
+  const [vi, setVi] = useState([]);
 
   useEffect(() => {
     fetch("/friends.json")
@@ -14,7 +17,9 @@ const FriendsProvider = ({ children }) => {
 
   return (
     <>
-      <FriendsContext.Provider value={{ friends, setFriends }}>
+      <FriendsContext.Provider
+        value={{ friends, setFriends, call, setCall, text, setText, vi, setVi }}
+      >
         {children}
       </FriendsContext.Provider>
     </>
