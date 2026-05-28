@@ -43,7 +43,6 @@ const FriendsDetails = ({ params }) => {
     const isexist = [...call].find((tm) => tm.id === callData.id);
 
     if (isexist) {
-      alert("call Data alredy exist");
       return;
     }
 
@@ -65,7 +64,6 @@ const FriendsDetails = ({ params }) => {
     const isexist = [...text].find((tm) => tm.id === callData.id);
 
     if (isexist) {
-      alert("call Data alredy exist");
       return;
     }
 
@@ -87,7 +85,6 @@ const FriendsDetails = ({ params }) => {
     const isexist = [...vi].find((tm) => tm.id === callData.id);
 
     if (isexist) {
-      alert("call Data alredy exist");
       return;
     }
 
@@ -95,6 +92,17 @@ const FriendsDetails = ({ params }) => {
   };
 
   const handleDelete = (deleteId) => {
+    toast.success("Delete Call List", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
     setFriends((prevFriends) =>
       prevFriends.filter((friend) => friend.id !== deleteId.id),
     );

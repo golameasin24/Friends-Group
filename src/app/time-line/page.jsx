@@ -24,7 +24,7 @@ const TimeLine = () => {
         call.map((tm) => (
           <div
             key={tm.id}
-            className="flex min-h-200 items-center gap-4 container mx-auto bg-white border border-[#eef2f5] rounded-[10px] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.03)] mt-10 transition-all duration-200 hover:shadow-[0_4px_6px_rgba(0,0,0,0.05)] hover:bg-[#fafbfc]"
+            className="flex items-center gap-4 container mx-auto bg-white border border-[#eef2f5] rounded-[10px] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.03)] mt-10 transition-all duration-200 hover:shadow-[0_4px_6px_rgba(0,0,0,0.05)] hover:bg-[#fafbfc]"
           >
             <div className="flex items-center justify-center bg-[#f1f5f9] w-11 h-11 rounded-lg">
               <FiPhoneCall className="text-xl text-[#475569]" />
