@@ -2,28 +2,38 @@
 
 import React, { useContext } from "react";
 import { FriendsContext } from "../Context/CreateContext";
-import { HiOutlineVideoCamera } from "react-icons/hi";
 import { FiPhoneCall } from "react-icons/fi";
 import { PiChatCircleTextLight } from "react-icons/pi";
 import { IoVideocamOffSharp } from "react-icons/io5";
+import BrowserDropdown from "@/Components/Soting Input/SortingIput";
 
 const TimeLine = () => {
-  const { call, text, vi } = useContext(FriendsContext);
+  // কনটেক্সট থেকে ডাটা এবং সিলেক্টেড টাইপ আনা হলো
+  const { call, text, vi, sortingType } = useContext(FriendsContext);
+
+  // ১. সর্টিং টাইপ অনুযায়ী সিদ্ধান্ত নেওয়া (কোন মেথডটি স্ক্রিনে শো করবে)
+  // কোনো কিছু সিলেক্ট না থাকলে (বা খালি থাকলে) সব ট্রু (true) থাকবে, অর্থাৎ সব ডাটা দেখাবে
+  const showCall = sortingType === "" || sortingType === "Call";
+  const showText = sortingType === "" || sortingType === "Text";
+  const showVideo = sortingType === "" || sortingType === "Video";
 
   return (
     <>
-      {call.map((tm) => {
-        return (
+      {/* ড্রপডাউন কন্টেইনার */}
+      <div className="container mx-auto my-5">
+        <BrowserDropdown />
+      </div>
+
+      {/* ================= CALL LIST ================= */}
+      {showCall &&
+        call.map((tm) => (
           <div
             key={tm.id}
             className="flex items-center gap-4 container mx-auto bg-white border border-[#eef2f5] rounded-[10px] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.03)] mt-10 transition-all duration-200 hover:shadow-[0_4px_6px_rgba(0,0,0,0.05)] hover:bg-[#fafbfc]"
           >
-            {/* বাম পাশের ভিডিও আইকন এলাকা */}
-            <div className="flex items-center justify-center bg-[#f1f5f9] w-11 h-11 rounded-8">
+            <div className="flex items-center justify-center bg-[#f1f5f9] w-11 h-11 rounded-[8px]">
               <FiPhoneCall className="text-xl text-[#475569]" />
             </div>
-
-            {/* ডান পাশের টেক্সট কন্টেন্ট */}
             <div className="flex flex-col gap-1">
               <h3 className="text-base font-semibold text-[#14532d]">
                 Call{" "}
@@ -34,21 +44,18 @@ const TimeLine = () => {
               <p className="text-sm text-[#94a3b8]">{tm.next_due_date}</p>
             </div>
           </div>
-        );
-      })}
+        ))}
 
-      {text.map((tm) => {
-        return (
+      {/* ================= TEXT LIST ================= */}
+      {showText &&
+        text.map((tm) => (
           <div
             key={tm.id}
             className="flex items-center gap-4 container mx-auto bg-white border border-[#eef2f5] rounded-[10px] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.03)] mt-10 transition-all duration-200 hover:shadow-[0_4px_6px_rgba(0,0,0,0.05)] hover:bg-[#fafbfc]"
           >
-            {/* বাম পাশের ভিডিও আইকন এলাকা */}
-            <div className="flex items-center justify-center bg-[#f1f5f9] w-11 h-11 rounded-8">
+            <div className="flex items-center justify-center bg-[#f1f5f9] w-11 h-11 rounded-[8px]">
               <PiChatCircleTextLight className="text-xl text-[#475569]" />
             </div>
-
-            {/* ডান পাশের টেক্সট কন্টেন্ট */}
             <div className="flex flex-col gap-1">
               <h3 className="text-base font-semibold text-[#14532d]">
                 Text{" "}
@@ -59,21 +66,18 @@ const TimeLine = () => {
               <p className="text-sm text-[#94a3b8]">{tm.next_due_date}</p>
             </div>
           </div>
-        );
-      })}
+        ))}
 
-      {vi.map((tm) => {
-        return (
+      {/* ================= VIDEO LIST ================= */}
+      {showVideo &&
+        vi.map((tm) => (
           <div
             key={tm.id}
             className="flex items-center gap-4 container mx-auto bg-white border border-[#eef2f5] rounded-[10px] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.03)] mt-10 transition-all duration-200 hover:shadow-[0_4px_6px_rgba(0,0,0,0.05)] hover:bg-[#fafbfc]"
           >
-            {/* বাম পাশের ভিডিও আইকন এলাকা */}
-            <div className="flex items-center justify-center bg-[#f1f5f9] w-11 h-11 rounded-8">
+            <div className="flex items-center justify-center bg-[#f1f5f9] w-11 h-11 rounded-[8px]">
               <IoVideocamOffSharp className="text-xl text-[#475569]" />
             </div>
-
-            {/* ডান পাশের টেক্সট কন্টেন্ট */}
             <div className="flex flex-col gap-1">
               <h3 className="text-base font-semibold text-[#14532d]">
                 Video{" "}
@@ -84,8 +88,7 @@ const TimeLine = () => {
               <p className="text-sm text-[#94a3b8]">{tm.next_due_date}</p>
             </div>
           </div>
-        );
-      })}
+        ))}
     </>
   );
 };

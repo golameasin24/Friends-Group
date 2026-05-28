@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { FriendsContext } from "./CreateContext";
 
 const FriendsProvider = ({ children }) => {
@@ -8,6 +8,7 @@ const FriendsProvider = ({ children }) => {
   const [call, setCall] = useState([]);
   const [text, setText] = useState([]);
   const [vi, setVi] = useState([]);
+  const [sortingType, setSortingType] = useState("");
 
   useEffect(() => {
     fetch("/friends.json")
@@ -18,7 +19,18 @@ const FriendsProvider = ({ children }) => {
   return (
     <>
       <FriendsContext.Provider
-        value={{ friends, setFriends, call, setCall, text, setText, vi, setVi }}
+        value={{
+          friends,
+          setFriends,
+          call,
+          setCall,
+          text,
+          setText,
+          vi,
+          setVi,
+          sortingType,
+          setSortingType,
+        }}
       >
         {children}
       </FriendsContext.Provider>
