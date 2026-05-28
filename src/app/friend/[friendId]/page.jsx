@@ -6,6 +6,7 @@ import { useContext, React, use } from "react";
 import { MdWifiCalling3 } from "react-icons/md";
 import styles from "./friend.module.css";
 import { useRouter } from "next/navigation";
+import { Bounce, toast } from "react-toastify";
 
 const FriendsDetails = ({ params }) => {
   const resolvedParams = use(params);
@@ -28,6 +29,17 @@ const FriendsDetails = ({ params }) => {
   }
 
   const handleCall = (callData) => {
+    toast.success("Call in time line", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
     const isexist = [...call].find((tm) => tm.id === callData.id);
 
     if (isexist) {
@@ -39,6 +51,17 @@ const FriendsDetails = ({ params }) => {
   };
 
   const handleText = (callData) => {
+    toast.success("Text in time line", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
     const isexist = [...text].find((tm) => tm.id === callData.id);
 
     if (isexist) {
@@ -50,6 +73,17 @@ const FriendsDetails = ({ params }) => {
   };
 
   const handleVi = (callData) => {
+    toast.success("Video in time line", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
     const isexist = [...vi].find((tm) => tm.id === callData.id);
 
     if (isexist) {
