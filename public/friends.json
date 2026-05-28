@@ -9,7 +9,8 @@
     "tags": ["hollywood", "action star"],
     "bio": "Met at a film festival. Loves high-octane stunts and aviation.",
     "goal": 14,
-    "next_due_date": "2026-06-10"
+    "next_due_date": "2026-06-10",
+    "interactions": { "call": 5, "text": 14, "video": 3 }
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "tags": ["avengers", "close friend"],
     "bio": "Co-star from theater days. Loves Broadway shows and fine dining.",
     "goal": 7,
-    "next_due_date": "2026-05-31"
+    "next_due_date": "2026-05-31",
+    "interactions": { "call": 8, "text": 22, "video": 6 }
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "tags": ["bollywood", "mentor"],
     "bio": "Met during a charity event. Absolute gentleman, loves reading and philosophy.",
     "goal": 15,
-    "next_due_date": "2026-05-15"
+    "next_due_date": "2026-05-15",
+    "interactions": { "call": 12, "text": 30, "video": 10 }
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "tags": ["bollywood", "badminton"],
     "bio": "Gym partner and great listener. Loves indoor sports and fashion designing.",
     "goal": 10,
-    "next_due_date": "2026-06-02"
+    "next_due_date": "2026-06-02",
+    "interactions": { "call": 4, "text": 18, "video": 5 }
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "tags": ["hollywood", "producer"],
     "bio": "Met during an art exhibition. Loves architecture, sculpting, and vintage bikes.",
     "goal": 14,
-    "next_due_date": "2026-05-22"
+    "next_due_date": "2026-05-22",
+    "interactions": { "call": 6, "text": 11, "video": 2 }
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
     "tags": ["director", "philanthropy"],
     "bio": "Collaborated on a humanitarian project. Passionate about world peace and traveling.",
     "goal": 7,
-    "next_due_date": "2026-06-03"
+    "next_due_date": "2026-06-03",
+    "interactions": { "call": 9, "text": 25, "video": 8 }
   },
   {
     "id": 7,
@@ -81,7 +87,8 @@
     "tags": ["oscar winner", "environment"],
     "bio": "Met at a climate change summit. Deeply invested in marine life conservation.",
     "goal": 30,
-    "next_due_date": "2026-05-24"
+    "next_due_date": "2026-05-24",
+    "interactions": { "call": 3, "text": 15, "video": 12 }
   },
   {
     "id": 8,
@@ -93,7 +100,8 @@
     "tags": ["global icon", "musician"],
     "bio": "Met in New York. Full of energy, loves techno music and tech startup investments.",
     "goal": 7,
-    "next_due_date": "2026-05-28"
+    "next_due_date": "2026-05-28",
+    "interactions": { "call": 10, "text": 28, "video": 7 }
   },
   {
     "id": 9,
@@ -105,7 +113,8 @@
     "tags": ["thor", "fitness"],
     "bio": "Surfing buddy from Australia. High energy guy, fitness enthusiast.",
     "goal": 14,
-    "next_due_date": "2026-05-27"
+    "next_due_date": "2026-05-27",
+    "interactions": { "call": 7, "text": 19, "video": 4 }
   },
   {
     "id": 10,
@@ -117,7 +126,8 @@
     "tags": ["un women", "harry potter"],
     "bio": "Met at a book club meeting. Passionate about literature and gender equality.",
     "goal": 5,
-    "next_concept": "2026-05-30"
+    "next_concept": "2026-05-30",
+    "interactions": { "call": 15, "text": 35, "video": 9 }
   },
   {
     "id": 11,
@@ -129,7 +139,8 @@
     "tags": ["ironman", "tech geek"],
     "bio": "Met at a tech expo. Extremely witty, loves robotics and classical jazz.",
     "goal": 20,
-    "next_due_date": "2026-05-10"
+    "next_due_date": "2026-05-10",
+    "interactions": { "call": 11, "text": 40, "video": 15 }
   },
   {
     "id": 12,
@@ -141,6 +152,7 @@
     "tags": ["bollywood", "cat lover"],
     "bio": "Met during a shoot in London. Super friendly, loves cats and baking desserts.",
     "goal": 7,
-    "next_due_date": "2026-05-31"
+    "next_due_date": "2026-05-31",
+    "interactions": { "call": 5, "text": 16, "video": 4 }
   }
 ]

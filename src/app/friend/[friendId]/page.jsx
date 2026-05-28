@@ -5,12 +5,14 @@ import Image from "next/image";
 import { useContext, React, use } from "react";
 import { MdWifiCalling3 } from "react-icons/md";
 import styles from "./friend.module.css";
+import { useRouter } from "next/navigation";
 
 const FriendsDetails = ({ params }) => {
   const resolvedParams = use(params);
   const { friendId } = resolvedParams;
+  const router = useRouter();
 
-  const { friends, call, setCall, text, setText, vi, setVi } =
+  const { friends, setFriends, call, setCall, text, setText, vi, setVi } =
     useContext(FriendsContext);
 
   const currentFriend = friends?.find((f) => f.id === parseInt(friendId));
@@ -58,6 +60,14 @@ const FriendsDetails = ({ params }) => {
     return setVi([...vi, callData]);
   };
 
+  const handleDelete = (deleteId) => {
+    setFriends((prevFriends) =>
+      prevFriends.filter((friend) => friend.id !== deleteId.id),
+    );
+
+    router.push("/");
+  };
+
   const statusClass =
     currentFriend.status === "overdue"
       ? styles.overdue
@@ -67,7 +77,6 @@ const FriendsDetails = ({ params }) => {
 
   return (
     <div className={styles["dashboard-container"]}>
-      {/* বাম পাশের প্রোফাইল সাইডবার */}
       <div className={styles["profile-sidebar"]}>
         <div className={`${styles.card} ${styles["profile-card"]}`}>
           <Image
@@ -80,11 +89,9 @@ const FriendsDetails = ({ params }) => {
           <h2>{currentFriend.name}</h2>
 
           <div className={styles["badge-container"]}>
-            {/* ডাইনামিক স্ট্যাটাস ব্যাজ (overdue / on-track) */}
             <span className={`${styles.badge} ${statusClass}`}>
               {currentFriend.status}
             </span>
-            {/* প্রথম ট্যাগটি দেখানোর জন্য */}
             {currentFriend.tags && currentFriend.tags.length > 0 && (
               <span className={`${styles.badge} ${styles.family}`}>
                 {currentFriend.tags[0]}
@@ -102,12 +109,14 @@ const FriendsDetails = ({ params }) => {
 
         <button className={styles.btn}>Snooze 2 Weeks</button>
         <button className={styles.btn}>Archive</button>
-        <button className={`${styles.btn} ${styles["btn-delete"]}`}>
+        <button
+          onClick={() => handleDelete(currentFriend)}
+          className={`${styles.btn} ${styles["btn-delete"]}`}
+        >
           Delete
         </button>
       </div>
 
-      {/* ডান পাশের মেইন গ্রিড কন্টেন্ট */}
       <div className={styles["main-content-grid"]}>
         <div className={`${styles.card} ${styles["status-card"]}`}>
           <h3>{currentFriend.days_since_contact ?? "0"}</h3>
@@ -122,14 +131,12 @@ const FriendsDetails = ({ params }) => {
         <div
           className={`${styles.card} ${styles["status-card"]} ${styles["highlight-date"]}`}
         >
-          {/* Emma Watson এর অবজেক্টে 'next_due_date' মিসিং থাকলে ব্যাকআপ হ্যান্ডেল করবে */}
           <h3>
             {currentFriend.next_due_date || currentFriend.next_concept || "N/A"}
           </h3>
           <p>Next Due</p>
         </div>
 
-        {/* Relationship Goal */}
         <div className={`${styles.card} ${styles["full-width-card"]}`}>
           <div className={styles["card-header"]}>
             <h4>Relationship Goal</h4>
@@ -140,7 +147,6 @@ const FriendsDetails = ({ params }) => {
           </p>
         </div>
 
-        {/* Quick Check-In */}
         <div className={`${styles.card} ${styles["full-width-card"]}`}>
           <h4>Quick Check-In</h4>
           <div className={styles["checkin-actions"]}>

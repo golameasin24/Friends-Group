@@ -1,7 +1,6 @@
-/* মেইন কন্টেইনার লেআউট - যা বাম ও ডান সেকশনকে পাশাপাশি রাখবে */
 .dashboard-container {
   display: grid;
-  grid-template-columns: 320px 1fr; /* বামে প্রোফাইল ফিক্সড, ডানে বাকি জায়গা */
+  grid-template-columns: 320px 1fr;
   gap: 24px;
   max-width: 1200px;
   width: 100%;
@@ -10,7 +9,6 @@
   box-sizing: border-box;
 }
 
-/* কমন কার্ড স্টাইল */
 .card {
   background: #ffffff;
   border: 1px solid #eef2f5;
@@ -20,7 +18,6 @@
   box-sizing: border-box;
 }
 
-/* প্রোফাইল সাইডবার */
 .profile-sidebar {
   display: flex;
   flex-direction: column;
@@ -88,7 +85,6 @@
   margin: 0;
 }
 
-/* সাইডবার বাটনসমূহ */
 .btn {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -110,15 +106,13 @@
   color: #ef4444;
 }
 
-/* ডান পাশের মেইন গ্রিড লেআউট */
 .main-content-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* সমান ৩টি কলাম */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   align-content: start;
 }
 
-/* স্ট্যাটাস কার্ড (উপরের ৩টি) */
 .status-card {
   display: flex;
   flex-direction: column;
@@ -149,12 +143,10 @@
   border-radius: 6px;
 }
 
-/* Col Span ট্রিক: ৩টি কলামের পুরো জায়গা নেওয়ার জন্য */
 .full-width-card {
   grid-column: span 3;
 }
 
-/* Relationship Goal সেকশন */
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -180,7 +172,6 @@
   color: #334155;
 }
 
-/* Quick Check-In অ্যাকশন বক্স */
 .checkin-actions {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -217,7 +208,6 @@
   justify-content: center;
 }
 
-/* ট্যাবলেট ও মোবাইলের জন্য রেসপনসিভ */
 @media (max-width: 900px) {
   .dashboard-container {
     grid-template-columns: 1fr;

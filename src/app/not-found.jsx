@@ -7,7 +7,6 @@ const NotFoundPage = () => {
   return (
     <div className="min-h-[85vh] flex flex-col items-center justify-center px-4 text-center">
       <div className="max-w-md w-full space-y-6">
-        {/* Large Animated Text / Art */}
         <div className="relative">
           <h1 className="text-9xl font-black text-primary/20 select-none animate-pulse">
             404
@@ -17,7 +16,6 @@ const NotFoundPage = () => {
           </p>
         </div>
 
-        {/* Message */}
         <div className="space-y-2">
           <h2 className="text-xl font-semibold opacity-90">
             The page you are looking for doesnt exist.
@@ -28,7 +26,6 @@ const NotFoundPage = () => {
           </p>
         </div>
 
-        {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
           <Link
             href="/"
