@@ -1,14 +1,35 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { toast, Bounce } from "react-toastify";
 
 const HomePageCard = ({ friend }) => {
   const { tags } = friend;
 
+  const handleDetail = () => {
+    toast("A frined added in details list", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
+
   return (
     <div>
-      <Link href={`/friend/${friend.id}`} className="p-3">
-        <div className="custom-card shadow-lg rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl flex flex-col justify-between h-full min-h-[320px]">
+      <Link
+        onClick={handleDetail}
+        href={`/friend/${friend.id}`}
+        className="p-3"
+      >
+        <div className="custom-card shadow-lg rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl flex flex-col justify-between h-full min-h-80">
           <div className="mb-4">
             <div className="w-20 h-20 relative overflow-hidden rounded-full ring-4 ring-primary/20 flex justify-center">
               <Image

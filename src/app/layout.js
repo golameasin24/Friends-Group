@@ -3,6 +3,7 @@ import "./globals.css";
 import FronLayout from "@/Components/FronLayout/FronLayout";
 import AppsProvider from "@/Components/AppsProvider/AppsProvider";
 import Footer from "@/Components/Footer/Footer";
+import ToastProvider from "@/Components/Tostify/Tostify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +31,9 @@ export default function RootLayout({ children }) {
         <AppsProvider>
           <FronLayout />
 
-          <main className="flex-1 w-full">{children}</main>
-
+          <ToastProvider>
+            <main className="flex-1 w-full">{children}</main>
+          </ToastProvider>
           <Footer />
         </AppsProvider>
       </body>
